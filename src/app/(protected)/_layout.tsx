@@ -1,3 +1,5 @@
+import '../../../global.css'
+
 import { Stack, Redirect } from "expo-router";
 import SignIn from "../signin";
 
