@@ -21,9 +21,9 @@ export default function Index() {
 
 
     const avisos = [
-        { id: 1, title: "Manutenção", local: "Elevador A", data: "Amanha 08h às 12h", importante: true},
-        { id: 2, title: "Limpesa Piscina", local: "Piscina", data: "Amanha 08h às 12h", importante: false},
-        { id: 3, title: "Limpesa Piscina", local: "Piscina", data: "Amanha 08h às 12h", importante: true }
+        { id: 1, title: "Manutenção", local: "Elevador A", data: "Amanhã 08h às 12h", importante: true},
+        { id: 2, title: "Limpesa Piscina", local: "Piscina", data: "Amanhã 08h às 12h", importante: false},
+        { id: 3, title: "Limpesa Piscina", local: "Piscina", data: "Amanhã 08h às 12h", importante: true }
     ]
 
 
@@ -36,24 +36,24 @@ export default function Index() {
         <ScrollView className='flex-1 bg-sky-50'>
             <StatusBar backgroundColor="#84cc16" style="light"/>
 
-            <View className='bg-lime-500 rounded-b-xl' style={{ paddingTop: safe.top}}>
-                <View className='flex-row w-full justify-around py-6 items-center'>
+            <View className='bg-green-500 rounded-b-xl' style={{ paddingTop: safe.top, elevation: 4}}>
+                <View className='flex-row w-full justify-around py-4 items-center'>
                     <MaterialCommunityIcons name='home' color={"#fff"} size={28} />
-                    <Text className='text-white text-[20px] font-bold'>Condomínio Inteligente</Text>
+                    <Text className='text-white text-2xl font-bold'>Condomínio Inteligente</Text>
                     <MaterialIcons name='person' color={"#fff"} size={24} style={{borderWidth: 2, borderColor: "#FFF", borderRadius: 999, padding: 4}}/>
                 </View>
                 <View className='px-4 py-5 gap-2'>
-                    <Text className='text-white text-lg font-extrabold'>Olá, Raphael!</Text>
+                    <Text className='text-white text-xl font-extrabold'>Olá, Raphael!</Text>
                     <View className='flex-row gap-2'>
                         <MaterialCommunityIcons name='package' color={"#15803d"} size={18} />
-                        <Text className='text-green-700 '>Você tem 2 encomendas na portaria</Text>
+                        <Text className='text-green-700'>Você tem 2 encomendas na portaria</Text>
                     </View>
                 </View>
             </View>
 
             <View className='p-4 items-center gap-2'>
                 <View className='flex-row gap-2'>
-                    <LinearGradient colors={["#84cc16", "#3D9DC7"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ borderRadius: 12, height: tamanhoAcessoRapido, width: tamanhoAcessoRapido, elevation: 4 }}>
+                    <LinearGradient colors={["#22c55e", "#3D9DC7"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ borderRadius: 12, height: tamanhoAcessoRapido, width: tamanhoAcessoRapido, elevation: 4 }}>
                         <TouchableOpacity className='rounded-xl items-center justify-center gap-2' style={{ height: tamanhoAcessoRapido, width: tamanhoAcessoRapido }}>
                             <MaterialCommunityIcons name='bookmark-box-multiple-outline' size={60} color={"#FFF"} />
                             <Text className='text-white text-xs font-bold'>Reserva Espaço</Text>
@@ -125,6 +125,7 @@ const RenderAvisos = ({ title, local, data, importante}: RenderAvisosProp) => {
                 <MaterialCommunityIcons name={importante? 'tools' : 'toolbox'} color={importante? "#FF0000" : "#e5de00"} size={20}/>
                 <Text className='font-extrabold text-lg'>{title}</Text>
             </View>
+            <View className='h-[1px] bg-gray-100 rounded-xl'/>
             <Text>{local}</Text>
             <Text className='text-neutral-500 text-xs'>{data}</Text>
         </View>

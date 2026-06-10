@@ -33,7 +33,7 @@ export default function ProtectedLayout() {
                     if (focused) {
                         return (
                             <View className="bg-sky-50 p-2.5 rounded-b-full -top-2" style={{ elevation: 1 }}>
-                                <View className="bg-lime-500 rounded-full p-2.5 items-center justify-center">
+                                <View className="bg-green-500 rounded-full p-2.5 items-center justify-center">
                                     <Octicons name="home-fill" size={24} color={focused ? "#FFF" : "#757575"} />
                                 </View>
                             </View>
@@ -49,9 +49,16 @@ export default function ProtectedLayout() {
 
             <Tabs.Screen name="message" options={{
                 title: "Message",
-                tabBarIcon: ({ focused, color, size }) => (
-                    <MaterialCommunityIcons name={focused ? "message-processing" : "message-processing-outline"} size={36} color={focused ? "#FFF" : "#757575"} />
-                ),
+                tabBarIcon: ({ focused, color, size }) => {
+                    if(focused){
+                        return (
+                            <ActivityTab name="message-processing"/>
+                        )
+                        
+                    }
+
+                    return <MaterialCommunityIcons name="message-processing-outline" size={36} color={focused ? "#FFF" : "#757575"} />
+                },
 
             }}
 
@@ -59,9 +66,11 @@ export default function ProtectedLayout() {
 
             <Tabs.Screen name="agenda" options={{
                 title: "Agenda",
-                tabBarIcon: ({ focused, color, size }) => (
-                    <MaterialCommunityIcons name={focused ? "calendar-month-outline" : "calendar-month"} size={36} color={focused ? "#FFF" : "#757575"} />
-                ),
+                tabBarIcon: ({ focused, color, size }) => {
+                    if(focused) return <ActivityTab name="calendar-month"/>
+
+                    return <MaterialCommunityIcons name="calendar-month-outline" size={36} color={focused ? "#FFF" : "#757575"} />
+                },
 
             }}
 
@@ -69,9 +78,11 @@ export default function ProtectedLayout() {
 
             <Tabs.Screen name="mais" options={{
                 title: "Mais",
-                tabBarIcon: ({ focused, color, size }) => (
-                    <MaterialCommunityIcons name={focused ? "menu" : "menu"} size={36} color={focused ? "#FFF" : "#757575"} />
-                ),
+                tabBarIcon: ({ focused, color, size }) => {
+                    if (focused) return <ActivityTab name="menu"/>
+
+                    return <MaterialCommunityIcons name="menu" size={36} color={focused ? "#FFF" : "#757575"} />
+                },
 
             }}
 
@@ -83,15 +94,15 @@ export default function ProtectedLayout() {
 }
 
 type ActivityTabProps = {
-  nome: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
+  name: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
 };
 
 
-function ActivityTab({ nome }: ActivityTabProps) {
+function ActivityTab({ name }: ActivityTabProps) {
     return (
         <View className="bg-sky-50 p-2.5 rounded-b-full -top-2" style={{ elevation: 1 }}>
-            <View className="bg-lime-500 rounded-full p-2.5 items-center justify-center">
-                <Octicons name={nome} size={24} color={"#FFF"} />
+            <View className="bg-green-500 rounded-full p-2.5 items-center justify-center">
+                <MaterialCommunityIcons name={name} size={24} color={"#FFF"} />
             </View>
         </View>
     )

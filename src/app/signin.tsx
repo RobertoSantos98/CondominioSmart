@@ -15,13 +15,13 @@ export default function SignIn() {
         <Image source={require("../assets/img-logo-smartcondominio.png")} />
 
         <View className='bg-white w-full px-3 py-3 rounded-xl gap-3' style={{elevation: 2}}>
-          <TextInput placeholder='Email' className='p-2 border border-gray-300 rounded text-lg' />
-          <TextInput placeholder='Senha' className='p-2 border border-gray-300 rounded text-lg' />
+          <TextInput placeholder='Email' className='p-3 border border-gray-300 rounded text-xl' />
+          <TextInput placeholder='Senha' className='p-3 border border-gray-300 rounded text-xl' />
 
           <TouchableOpacity onPress={signIn} className='w-full rounded-xl'>
             <LinearGradient colors={["#24DD30", "#3D9DC7"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1}} style={{borderRadius: 4, alignItems: 'center'}}>
 
-              <Text className='font-bold text-white text-lg py-3'>Entrar</Text>
+              <Text className='font-bold text-white text-xl py-3'>Entrar</Text>
             </LinearGradient>
           </TouchableOpacity>
         </View>
