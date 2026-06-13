@@ -1,4 +1,4 @@
-import { View, Button, Text, TouchableOpacity, Dimensions, FlatList, ScrollView } from 'react-native'
+import { View, Button, Text, TouchableOpacity, Dimensions, FlatList, ScrollView, Image } from 'react-native'
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons"
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar'
@@ -7,6 +7,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { LinearGradient } from 'expo-linear-gradient';
 import TitleLabel from '@/components/titleLabel';
 import MinhaAgenda from '@/sections/minhaAgenda';
+import UtilidadePublica from '@/sections/UtilidadesPublicas';
 
 
 
@@ -21,27 +22,33 @@ export default function Index() {
 
 
     const avisos = [
-        { id: 1, title: "Manutenção", local: "Elevador A", data: "Amanhã 08h às 12h", importante: true},
-        { id: 2, title: "Limpesa Piscina", local: "Piscina", data: "Amanhã 08h às 12h", importante: false},
+        { id: 1, title: "Manutenção", local: "Elevador A", data: "Amanhã 08h às 12h", importante: true },
+        { id: 2, title: "Limpesa Piscina", local: "Piscina", data: "Amanhã 08h às 12h", importante: false },
         { id: 3, title: "Limpesa Piscina", local: "Piscina", data: "Amanhã 08h às 12h", importante: true }
     ]
 
 
     const handleVerTodosAvisos = () => {
-        return 
+        return
     }
 
 
     return (
-        <ScrollView className='flex-1 bg-sky-50'>
-            <StatusBar backgroundColor="#84cc16" style="light"/>
+        <ScrollView className='flex-1 bg-slate-100'>
+            <StatusBar backgroundColor="#84cc16" style="light" />
 
-            <View className='bg-green-500 rounded-b-xl' style={{ paddingTop: safe.top, elevation: 4}}>
+            <View className='bg-green-500 rounded-b-xl' style={{ paddingTop: safe.top, elevation: 4 }}>
+
                 <View className='flex-row w-full justify-around py-4 items-center'>
-                    <MaterialCommunityIcons name='home' color={"#fff"} size={28} />
+                    <View className='bg-white p-3 rounded-full'>
+                        <Image source={require('../../assets/img-logo-smartcondominio.png')} style={{ width: 18, height: 18 }} />
+                    </View>
                     <Text className='text-white text-2xl font-bold'>Condomínio Inteligente</Text>
-                    <MaterialIcons name='person' color={"#fff"} size={24} style={{borderWidth: 2, borderColor: "#FFF", borderRadius: 999, padding: 4}}/>
+                    <TouchableOpacity>
+                        <MaterialIcons name='person' color={"#22c55e"} size={24} style={{ backgroundColor: "#FFF", borderRadius: 999, padding: 6 }} />
+                    </TouchableOpacity>
                 </View>
+
                 <View className='px-4 py-5 gap-2'>
                     <Text className='text-white text-xl font-extrabold'>Olá, Raphael!</Text>
                     <View className='flex-row gap-2'>
@@ -49,6 +56,7 @@ export default function Index() {
                         <Text className='text-green-700'>Você tem 2 encomendas na portaria</Text>
                     </View>
                 </View>
+
             </View>
 
             <View className='p-4 items-center gap-2'>
@@ -84,7 +92,7 @@ export default function Index() {
                 </View>
             </View>
 
-            <TitleLabel title="Avisos" label="Ver Todos" onPress={handleVerTodosAvisos}/>
+            <TitleLabel title="Avisos" label="Ver Todos" onPress={handleVerTodosAvisos} />
 
             <View>
 
@@ -94,16 +102,20 @@ export default function Index() {
                     keyExtractor={item => item.id.toString()}
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    style={{ paddingHorizontal: 16}}
+                    style={{ paddingHorizontal: 16 }}
                 />
             </View>
 
-            <MinhaAgenda/>
+            <MinhaAgenda />
 
+            <UtilidadePublica/>
 
             <TouchableOpacity onPress={signOut} className='bg-blue-500 p-4 my-4'>
                 <Text className='text-white'>Sair</Text>
             </TouchableOpacity>
+
+
+
         </ScrollView>
 
 
@@ -118,16 +130,27 @@ type RenderAvisosProp = {
     importante: boolean
 }
 
-const RenderAvisos = ({ title, local, data, importante}: RenderAvisosProp) => {
+const RenderAvisos = ({ title, local, data, importante }: RenderAvisosProp) => {
     return (
-        <View className='bg-white rounded-xl w-60 py-3 px-4 mr-2 my-3 gap-2' style={{ elevation: 4, borderColor: "#FF0000",borderWidth:importante? 1: 0 }}>
-            <View className='flex-row gap-2'>
-                <MaterialCommunityIcons name={importante? 'tools' : 'toolbox'} color={importante? "#FF0000" : "#e5de00"} size={20}/>
-                <Text className='font-extrabold text-lg'>{title}</Text>
+        <View className='bg-white rounded-xl w-60 mr-2 my-3 flex-row overflow-hidden' style={{ elevation: 4, borderColor: "#FF0000", borderWidth: importante ? 0.2 : 0 }}>
+
+            <View className='h-3 w-3 absolute right-2 top-2 rounded-full overflow-hidden'>
+                <LinearGradient
+                    colors={["#3b82f6", "#1d4ed8"]}
+                    style={{flex:1}}
+                />
             </View>
-            <View className='h-[1px] bg-gray-100 rounded-xl'/>
-            <Text>{local}</Text>
-            <Text className='text-neutral-500 text-xs'>{data}</Text>
+            
+            <View className='bg-slate-200 px-4 items-center justify-center'>
+                <MaterialCommunityIcons name={importante ? 'tools' : 'toolbox'} color={importante ? "#FF0000" : "#94a3b8"} size={28} />
+            </View>
+
+            <View className='gap-2 py-3 px-4'>
+                <Text className='font-extrabold text-lg'>{title}</Text>
+                <View className='h-[1px] bg-gray-100 rounded-xl' />
+                <Text>{local}</Text>
+                <Text className='text-neutral-500 text-xs'>{data}</Text>
+            </View>
         </View>
     )
 }
