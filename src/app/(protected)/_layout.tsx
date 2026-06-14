@@ -3,7 +3,7 @@ import { Octicons, MaterialCommunityIcons } from '@expo/vector-icons'
 import SignIn from "../signin";
 
 import { useAuth } from "@/hooks/useAuth";
-import { View } from "react-native";
+import { StatusBar, View } from "react-native";
 
 
 
@@ -49,6 +49,7 @@ export default function ProtectedLayout() {
 
             <Tabs.Screen name="message" options={{
                 title: "Message",
+                headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => {
                     if(focused){
                         return (
@@ -66,6 +67,7 @@ export default function ProtectedLayout() {
 
             <Tabs.Screen name="agenda" options={{
                 title: "Agenda",
+                headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => {
                     if(focused) return <ActivityTab name="calendar-month"/>
 
@@ -78,6 +80,7 @@ export default function ProtectedLayout() {
 
             <Tabs.Screen name="mais" options={{
                 title: "Mais",
+                headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => {
                     if (focused) return <ActivityTab name="menu"/>
 
@@ -100,7 +103,7 @@ type ActivityTabProps = {
 
 function ActivityTab({ name }: ActivityTabProps) {
     return (
-        <View className="bg-sky-50 p-2.5 rounded-b-full -top-2" style={{ elevation: 1 }}>
+        <View className="bg-slate-100 p-2.5 rounded-b-full -top-2" style={{ elevation: 1 }}>
             <View className="bg-green-500 rounded-full p-2.5 items-center justify-center">
                 <MaterialCommunityIcons name={name} size={24} color={"#FFF"} />
             </View>
