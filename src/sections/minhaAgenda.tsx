@@ -19,7 +19,7 @@ export default function MinhaAgenda() {
 
     return (
         <View className=''>
-            <TitleLabel title="Minha Agenda" label='Ver Todos' onPress={handleVerTodosAgenda} />
+            <TitleLabel title="Minha Agenda" label='ver todos' onPress={handleVerTodosAgenda} />
 
             <View>
                 <FlatList
@@ -45,7 +45,7 @@ function RenderAgendas({ title, data, img }: RenderAgendasProps) {
     return (
         <View className='bg-white w-full rounded-2xl mx-4 mb-4' style={{ width: width - 32, elevation: 4 }}>
 
-            <View className='m-2 rounded-lg overflow-hidden bg-black'>
+            <View className='m-1 rounded-xl overflow-hidden bg-black'>
                 <Image source={{uri: img}} style={{width: "100%", height: 150}} />
             </View>
 
@@ -54,10 +54,10 @@ function RenderAgendas({ title, data, img }: RenderAgendasProps) {
                     <MaterialCommunityIcons name='calendar' size={20} color={"#737373"} />
                     <Text className='font-bold'>{title}</Text>
                 </View>
-                <View className='h-[1px] bg-gray-100' />
+                {/* <View className='h-[1px] bg-gray-100' /> */}
 
-                <Text>Data: {data}</Text>
-                <Text>Horário: 19:00 às 22:00</Text>
+                <Text className='text-gray-500'>Data: {data}</Text>
+                <Text className='text-gray-500'>Horário: 19:00 às 22:00</Text>
 
                 <View className='py-2 flex-row justify-between'>
                     <TouchableOpacity className='bg-green-500 py-2 px-4 rounded-full'>

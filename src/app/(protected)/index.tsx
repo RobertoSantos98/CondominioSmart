@@ -8,6 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import TitleLabel from '@/components/titleLabel';
 import MinhaAgenda from '@/sections/minhaAgenda';
 import UtilidadePublica from '@/sections/UtilidadesPublicas';
+import { router } from 'expo-router';
 
 
 
@@ -85,14 +86,14 @@ export default function Index() {
                         <MaterialCommunityIcons name='block-helper' size={60} color={"#757575"} />
                         <Text className='text-xs text-neutral-500 font-bold'>Reportar Ocorrências</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity className='bg-white  rounded-xl h-32 items-center justify-center gap-2' style={{ height: tamanhoAcessoRapido, width: tamanhoAcessoRapido, elevation: 4 }}>
+                    <TouchableOpacity onPress={() => router.replace("/mais")} className='bg-white  rounded-xl h-32 items-center justify-center gap-2' style={{ height: tamanhoAcessoRapido, width: tamanhoAcessoRapido, elevation: 4 }}>
                         <MaterialCommunityIcons name='menu-close' size={60} color={"#757575"} />
                         <Text className='text-xs text-neutral-500 font-bold'>Outros</Text>
                     </TouchableOpacity>
                 </View>
             </View>
 
-            <TitleLabel title="Avisos" label="Ver Todos" onPress={handleVerTodosAvisos} />
+            <TitleLabel title="Avisos" label="ver todos" onPress={handleVerTodosAvisos} />
 
             <View>
 
@@ -132,7 +133,7 @@ type RenderAvisosProp = {
 
 const RenderAvisos = ({ title, local, data, importante }: RenderAvisosProp) => {
     return (
-        <View className='bg-white rounded-xl w-60 mr-2 my-3 flex-row overflow-hidden' style={{ elevation: 4, borderColor: "#FF0000", borderWidth: importante ? 0.2 : 0 }}>
+        <View className='bg-white rounded-xl w-60 mr-2 mb-2 flex-row overflow-hidden' style={{ elevation: 4, borderColor: "#FF0000", borderWidth: importante ? 0.2 : 0 }}>
 
             <View className='h-3 w-3 absolute right-2 top-2 rounded-full overflow-hidden'>
                 <LinearGradient
@@ -141,7 +142,7 @@ const RenderAvisos = ({ title, local, data, importante }: RenderAvisosProp) => {
                 />
             </View>
             
-            <View className='bg-slate-200 px-4 items-center justify-center'>
+            <View className='px-4 items-center justify-center' style={{backgroundColor: importante ? "#fee2e2" : "#e2e8f0"}}>
                 <MaterialCommunityIcons name={importante ? 'tools' : 'toolbox'} color={importante ? "#FF0000" : "#94a3b8"} size={28} />
             </View>
 
