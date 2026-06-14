@@ -9,6 +9,7 @@ import TitleLabel from '@/components/titleLabel';
 import MinhaAgenda from '@/sections/minhaAgenda';
 import UtilidadePublica from '@/sections/UtilidadesPublicas';
 import { router } from 'expo-router';
+import MeusAvisos from '@/sections/meusAvisos';
 
 
 
@@ -20,18 +21,6 @@ export default function Index() {
 
 
     const { signOut } = useAuth();
-
-
-    const avisos = [
-        { id: 1, title: "Manutenção", local: "Elevador A", data: "Amanhã 08h às 12h", importante: true },
-        { id: 2, title: "Limpesa Piscina", local: "Piscina", data: "Amanhã 08h às 12h", importante: false },
-        { id: 3, title: "Limpesa Piscina", local: "Piscina", data: "Amanhã 08h às 12h", importante: true }
-    ]
-
-
-    const handleVerTodosAvisos = () => {
-        return
-    }
 
 
     return (
@@ -53,8 +42,8 @@ export default function Index() {
                 <View className='px-4 py-5 gap-2'>
                     <Text className='text-white text-xl font-extrabold'>Olá, Raphael!</Text>
                     <View className='flex-row gap-2'>
-                        <MaterialCommunityIcons name='package' color={"#15803d"} size={18} />
-                        <Text className='text-green-700'>Você tem 2 encomendas na portaria</Text>
+                        <MaterialCommunityIcons name='package' color={"#bbf7d0"} size={18} />
+                        <Text className='text-green-200'>Você tem 2 pacotes na portaria</Text>
                     </View>
                 </View>
 
@@ -65,7 +54,7 @@ export default function Index() {
                     <LinearGradient colors={["#22c55e", "#3D9DC7"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={{ borderRadius: 12, height: tamanhoAcessoRapido, width: tamanhoAcessoRapido, elevation: 4 }}>
                         <TouchableOpacity className='rounded-xl items-center justify-center gap-2' style={{ height: tamanhoAcessoRapido, width: tamanhoAcessoRapido }}>
                             <MaterialCommunityIcons name='bookmark-box-multiple-outline' size={60} color={"#FFF"} />
-                            <Text className='text-white text-xs font-bold'>Reserva Espaço</Text>
+                            <Text className='text-white text-xs font-bold'>Reservar Espaço</Text>
                         </TouchableOpacity>
                     </LinearGradient>
                     <TouchableOpacity className='bg-white rounded-xl h-32 items-center justify-center gap-2' style={{ height: tamanhoAcessoRapido, width: tamanhoAcessoRapido, elevation: 4 }}>
@@ -93,19 +82,7 @@ export default function Index() {
                 </View>
             </View>
 
-            <TitleLabel title="Avisos" label="ver todos" onPress={handleVerTodosAvisos} />
-
-            <View>
-
-                <FlatList
-                    data={avisos}
-                    renderItem={({ item }) => <RenderAvisos title={item.title} local={item.local} data={item.data} importante={item.importante} />}
-                    keyExtractor={item => item.id.toString()}
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    style={{ paddingHorizontal: 16 }}
-                />
-            </View>
+            <MeusAvisos/>
 
             <MinhaAgenda />
 
@@ -124,34 +101,4 @@ export default function Index() {
     )
 }
 
-type RenderAvisosProp = {
-    title: string,
-    local: string,
-    data: string,
-    importante: boolean
-}
 
-const RenderAvisos = ({ title, local, data, importante }: RenderAvisosProp) => {
-    return (
-        <View className='bg-white rounded-xl w-60 mr-2 mb-2 flex-row overflow-hidden' style={{ elevation: 4, borderColor: "#FF0000", borderWidth: importante ? 0.2 : 0 }}>
-
-            <View className='h-3 w-3 absolute right-2 top-2 rounded-full overflow-hidden'>
-                <LinearGradient
-                    colors={["#3b82f6", "#1d4ed8"]}
-                    style={{flex:1}}
-                />
-            </View>
-            
-            <View className='px-4 items-center justify-center' style={{backgroundColor: importante ? "#fee2e2" : "#e2e8f0"}}>
-                <MaterialCommunityIcons name={importante ? 'tools' : 'toolbox'} color={importante ? "#FF0000" : "#94a3b8"} size={28} />
-            </View>
-
-            <View className='gap-2 py-3 px-4'>
-                <Text className='font-extrabold text-lg'>{title}</Text>
-                <View className='h-[1px] bg-gray-100 rounded-xl' />
-                <Text>{local}</Text>
-                <Text className='text-neutral-500 text-xs'>{data}</Text>
-            </View>
-        </View>
-    )
-}

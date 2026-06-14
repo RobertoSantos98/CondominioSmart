@@ -1,7 +1,11 @@
 import TitleLabel from '@/components/titleLabel';
-import { FlatList, Image, Text, View } from 'react-native';
+import { FlatList, Image, Text, View, Dimensions } from 'react-native';
+
+
+const { width } = Dimensions.get("window")
 
 export default function UtilidadePublica() {
+
 
     const dados = [
         {id: 1, title: "Morador do apto 42", message: "Vendendo uma Airfryer", img: "https://t.ctcdn.com.br/O9butd0Uli1q5A_TeEyhXGGeAf0=/640x360/smart/i1112285.png"},
@@ -33,11 +37,11 @@ type renderItemProps = {
 
 const RenderItems = ({title, message, img}: renderItemProps) => {
     return (
-        <View className='bg-white gap-2 mr-2 rounded-2xl flex-row overflow-hidden' style={{elevation: 4}}>
-            <Image source={{ uri: img}} style={{ width: 100, height: 100}}/>
-            <View className='gap-2 p-4' style={{elevation: 4}}>
+        <View className='bg-white mr-2 rounded-xl flex-row overflow-hidden' style={{elevation: 4, width: width / 3 * 2 }}>
+            <Image source={{ uri: img}} style={{ width: 100, height: 100 }}/>
+            <View className='gap-1 p-4 flex-1' style={{elevation: 4}}>
                 <Text className='font-bold'>{title}</Text>
-                <Text>{message}</Text>
+                <Text className='flex-wrap'>{message}</Text>
             </View>
         </View>
     )

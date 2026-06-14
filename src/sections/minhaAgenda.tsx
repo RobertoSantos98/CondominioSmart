@@ -18,7 +18,7 @@ export default function MinhaAgenda() {
 
 
     return (
-        <View className=''>
+        <View >
             <TitleLabel title="Minha Agenda" label='ver todos' onPress={handleVerTodosAgenda} />
 
             <View>
@@ -43,7 +43,7 @@ type RenderAgendasProps = {
 
 function RenderAgendas({ title, data, img }: RenderAgendasProps) {
     return (
-        <View className='bg-white w-full rounded-2xl mx-4 mb-4' style={{ width: width - 32, elevation: 4 }}>
+        <View className='bg-white rounded-2xl mx-4 mb-4' style={{ width: width - 32, elevation: 4 }}>
 
             <View className='m-1 rounded-xl overflow-hidden bg-black'>
                 <Image source={{uri: img}} style={{width: "100%", height: 150}} />
