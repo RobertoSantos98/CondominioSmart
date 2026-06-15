@@ -15,10 +15,23 @@ export default function SignIn() {
     <View style={{ flex: 1 }} className='bg-green-500'>
 
       <View style={{ flex: 1 }} className='justify-center items-center bg-green-500'>
-        
-        <View className='bg-green-700 h-60 w-60 rounded-full absolute -left-20 -top-20' />
-        <View className='bg-green-600 h-60 w-60 rounded-full absolute -right-20 -bottom-20' />
-        
+
+        {/* <LinearGradient
+          colors={["#166534", "#22c55e"]}
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+          }}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 1 }}
+        /> */}
+
+        <View className='bg-green-700 h-56 w-56 rounded-full absolute -left-14 -top-24' />
+        <View className='bg-green-600 h-56 w-56 rounded-full absolute -right-20 -bottom-20' />
+
         <View className='bg-white rounded-full p-6'>
           <Image source={require("../assets/img-logo-smartcondominio.png")} style={{ height: 90, width: 90 }} />
         </View>
@@ -50,7 +63,7 @@ export default function SignIn() {
           containerStyle={{
             width: "100%",
           }}
-          style={{ alignSelf: 'stretch'}}
+          style={{ alignSelf: 'stretch' }}
         >
           <TouchableOpacity
             onPress={signIn}
@@ -75,20 +88,20 @@ export default function SignIn() {
                 top: 0,
                 bottom: 0
               }}
-              start={{x: 0, y: 0}}
-              end={{x: 1, y: 0}}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
             />
-              <Text className="font-bold text-white text-xl z-10">
-                Entrar
-              </Text>
+            <Text className="font-bold text-white text-xl z-10">
+              Entrar
+            </Text>
 
-              <MaterialCommunityIcons
-                name="arrow-right-bold"
-                size={16}
-                color="#FFF"
-                style={{ marginLeft: 6, zIndex: 10 }}
-              />
-            
+            <MaterialCommunityIcons
+              name="arrow-right-bold"
+              size={16}
+              color="#FFF"
+              style={{ marginLeft: 6, zIndex: 10 }}
+            />
+
           </TouchableOpacity>
         </Shadow>
 

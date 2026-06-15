@@ -1,10 +1,24 @@
 import "../../global.css"
 
-import { Stack } from "expo-router";
+import { SplashScreen, Stack } from "expo-router";
 import { AuthProvider } from "@/contexts/authContext";
+import { useState } from "react";
+import SplashScreenAnimation from "./splash";
 
 
 export default function Layout() {
+
+    const [splashAnimationFinished, setSplashAnimationFinished] = useState(false);
+
+
+    if(!splashAnimationFinished) {
+        return (
+            <SplashScreenAnimation onFinish={() => {setSplashAnimationFinished(true)}} />
+        )
+    }
+
+
+
     return (
         <AuthProvider>
             <Stack>
