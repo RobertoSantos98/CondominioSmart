@@ -9,12 +9,6 @@ import { StatusBar, View } from "react-native";
 
 export default function ProtectedLayout() {
 
-    const { isLoggedIn } = useAuth()
-
-    if (!isLoggedIn) {
-        return <SignIn />
-    }
-
     return (
         <Tabs screenOptions={{
             tabBarStyle: {

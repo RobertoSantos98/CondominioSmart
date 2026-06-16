@@ -40,21 +40,14 @@ export default function Mais() {
 
       </View>
 
-      <TouchableOpacity className='py-4 flex-row items-center gap-2'>
-        <MaterialCommunityIcons name='home' size={24} color={"#334155"} style={{ marginHorizontal: 16 }} />
-        <Text className='text-slate-700'>Início</Text>
-      </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.2} className='py-4 flex-row items-center gap-2'>
-        <MaterialCommunityIcons name='help-box-multiple-outline' size={24} color={"#334155"} style={{ marginHorizontal: 16 }} />
-        <Text className='text-slate-700'>Ajuda</Text>
-      </TouchableOpacity>
+      <MenuOptions title='Início' icone='home' navegar='/' />
+      <MenuOptions title='Ajuda' icone='help-box-multiple-outline' navegar='/' />
 
       <View className='h-0.5 bg-slate-200 rounded-full mx-4' />
 
       <View>
         <Text className='py-2 px-4 text-slate-700 font-bold'>Menu</Text>
 
-        <MenuOptions title='Início' icone='home' navegar='/' />
         <MenuOptions title='Reservar Espaço' icone='bookmark-box-multiple-outline' navegar='/' />
         <MenuOptions title='Autorizar Visitante' icone='checkbox-multiple-marked-circle' navegar='/' />
         <MenuOptions title='Mural de Avisos' icone='card-multiple' navegar='/' />

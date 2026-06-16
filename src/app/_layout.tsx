@@ -1,19 +1,34 @@
 import "../../global.css"
 
-import { SplashScreen, Stack } from "expo-router";
+import { SplashScreen, Stack, useRouter } from "expo-router";
 import { AuthProvider } from "@/contexts/authContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SplashScreenAnimation from "./splash";
+import { useAuth } from "@/hooks/useAuth";
 
 
 export default function Layout() {
 
+    const { isLoggedIn } = useAuth();
+    const router = useRouter();
+
     const [splashAnimationFinished, setSplashAnimationFinished] = useState(false);
 
+    useEffect(() => {
 
-    if(!splashAnimationFinished) {
+        if (!splashAnimationFinished) return;
+
+        if (!isLoggedIn) {
+            router.replace('/signin');
+        } else {
+            router.replace('/');
+        }
+
+    }, [isLoggedIn, splashAnimationFinished])
+
+    if (!splashAnimationFinished) {
         return (
-            <SplashScreenAnimation onFinish={() => {setSplashAnimationFinished(true)}} />
+            <SplashScreenAnimation onFinish={() => { setSplashAnimationFinished(true) }} />
         )
     }
 
@@ -22,13 +37,7 @@ export default function Layout() {
     return (
         <AuthProvider>
             <Stack>
-                <Stack.Screen
-                    name="(protected)"
-                    options={{
-                        headerShown: false,
-                        animation: "none"
-                    }}
-                />
+
                 <Stack.Screen
                     name="signin"
                     options={{
@@ -37,6 +46,23 @@ export default function Layout() {
                         animation: "fade_from_bottom"
                     }}
                 />
+
+                <Stack.Screen
+                    name="(tabs)"
+                    options={{
+                        headerShown: false,
+                        animation: "none"
+                    }}
+                />
+
+                <Stack.Screen
+                    name="(telas)"
+                    options={{
+                        headerShown: false,
+                        animation: "none"
+                    }}
+                />
+
             </Stack>
         </AuthProvider>
     )
