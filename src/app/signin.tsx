@@ -57,10 +57,10 @@ export default function SignIn() {
         {/* Botão Entrar com Gradiente e Sombra Premium */}
         <View className="mt-2">
           <Shadow
-            distance={6}
-            startColor="rgba(34, 197, 94, 0.15)"
+            distance={8}
+            startColor="rgba(34, 197, 94, 0.20)"
             containerStyle={{ width: "100%" }}
-            style={{ alignSelf: 'stretch' }}
+            style={{ alignSelf: 'stretch', borderRadius: 16 }}
           >
             <TouchableOpacity
               onPress={signIn}

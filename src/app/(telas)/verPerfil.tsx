@@ -3,6 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Shadow } from 'react-native-shadow-2';
 
 export default function VerPerfil() {
     const insets = useSafeAreaInsets();
@@ -10,8 +11,8 @@ export default function VerPerfil() {
     return (
         <ScrollView className='flex-1 bg-slate-100' showsVerticalScrollIndicator={false}>
 
-        
-        
+
+
             <View className='bg-green-500 pb-10 rounded-b-3xl' style={{ paddingTop: insets.top, elevation: 4 }}>
                 <View className='flex-row p-4 items-center'>
                     <TouchableOpacity
@@ -24,18 +25,18 @@ export default function VerPerfil() {
                 </View>
             </View>
 
-         
+
             <View className='bg-white p-4 rounded-full -mt-12 self-center border border-slate-100 shadow-sm' style={{ elevation: 3 }}>
                 <MaterialIcons name='person' size={64} color="#64748b" />
             </View>
 
-           
+
             <View className='self-center items-center mt-2 mb-4'>
                 <Text className='font-extrabold text-xl text-slate-800'>Rafael dos Santos</Text>
                 <Text className='text-slate-400 text-sm font-medium'>rafael@teste.com</Text>
             </View>
 
-       
+
             <Text className='px-6 pt-2 pb-1 text-slate-400 font-bold text-[11px] uppercase tracking-wider'>Dados de Contato</Text>
             <View className='p-4 mx-4 mb-4 rounded-2xl border border-slate-200/60 bg-white gap-4 shadow-sm' style={{ elevation: 2 }}>
 
@@ -66,8 +67,9 @@ export default function VerPerfil() {
                 </View>
             </View>
 
-           
+
             <Text className='px-6 pt-2 pb-1 text-slate-400 font-bold text-[11px] uppercase tracking-wider'>Vínculo Condominial</Text>
+
             <View className='p-4 mx-4 mb-6 border border-slate-200/60 bg-white gap-4 rounded-2xl shadow-sm' style={{ elevation: 2 }}>
 
                 <View className='flex-row gap-3 items-start'>
@@ -114,34 +116,41 @@ export default function VerPerfil() {
 
 
             <View className='px-4 pb-10 gap-3'>
-             
-                <TouchableOpacity className='p-4 rounded-xl overflow-hidden items-center justify-center' activeOpacity={0.8}>
-                    <LinearGradient
-                        colors={["#22c55e", "#3D9DC7"]}
-                        style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 0 }}
-                    />
-                    <Text className='text-white font-extrabold text-sm uppercase tracking-wider'>Solicitar Edição de Dados</Text>
-                </TouchableOpacity>
 
-                
-                
+                <Shadow
+                    distance={6}
+                    startColor="rgba(34, 197, 94, 0.15)"
+                    containerStyle={{ width: "100%" }}
+                    style={{ alignSelf: 'stretch', borderRadius: 16 }}
+                >
+                    <TouchableOpacity className='p-4 rounded-xl overflow-hidden items-center justify-center' activeOpacity={0.8}>
+                        <LinearGradient
+                            colors={["#22c55e", "#3D9DC7"]}
+                            style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}
+                            start={{ x: 0, y: 0 }}
+                            end={{ x: 1, y: 0 }}
+                        />
+                        <Text className='text-white font-extrabold text-sm uppercase tracking-wide'>Solicitar Edição de Dados</Text>
+                    </TouchableOpacity>
+                </Shadow>
+
+
+
                 <TouchableOpacity
                     className='p-4 rounded-xl items-center justify-center bg-white border border-slate-200 active:bg-slate-50 shadow-sm'
                     style={{ elevation: 1 }}
                     activeOpacity={0.7}
                 >
-                    <Text className='text-slate-700 font-extrabold text-sm uppercase tracking-wider'>Alterar Minha Senha</Text>
+                    <Text className='text-slate-700 font-extrabold text-sm uppercase tracking-wide'>Alterar Minha Senha</Text>
                 </TouchableOpacity>
 
-                
-                
+
+
                 <TouchableOpacity
                     className='p-4 rounded-xl items-center justify-center bg-red-50 border border-red-200 active:bg-red-100 mt-2'
                     activeOpacity={0.7}
                 >
-                    <Text className='text-red-600 font-extrabold text-sm uppercase tracking-wider'>Sair da Conta</Text>
+                    <Text className='text-red-600 font-extrabold text-sm uppercase tracking-wide'>Sair da Conta</Text>
                 </TouchableOpacity>
             </View>
 
