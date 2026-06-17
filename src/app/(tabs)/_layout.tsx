@@ -26,8 +26,8 @@ export default function ProtectedLayout() {
                 tabBarIcon: ({ focused, color, size }) => {
                     if (focused) {
                         return (
-                            <View className="bg-sky-50 p-2.5 rounded-b-full -top-2" style={{ elevation: 1 }}>
-                                <View className="bg-green-500 rounded-full p-2.5 items-center justify-center">
+                            <View className="bg-slate-100 p-2 rounded-b-full -top-3 shadow-sm" style={{ elevation: 2 }}>
+                                <View className="bg-green-500 rounded-full p-3 items-center justify-center">
                                     <Octicons name="home-fill" size={24} color={focused ? "#FFF" : "#757575"} />
                                 </View>
                             </View>
@@ -35,7 +35,7 @@ export default function ProtectedLayout() {
                     }
 
                     return (
-                        <Octicons name="home" size={36} color={"#757575"} />
+                        <Octicons name="home" size={28} color={"#757575"} />
                     )
                 },
 
@@ -45,14 +45,14 @@ export default function ProtectedLayout() {
                 title: "Message",
                 headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => {
-                    if(focused){
+                    if (focused) {
                         return (
-                            <ActivityTab name="message-processing"/>
+                            <ActivityTab name="message-processing" />
                         )
-                        
+
                     }
 
-                    return <MaterialCommunityIcons name="message-processing-outline" size={36} color={focused ? "#FFF" : "#757575"} />
+                    return <MaterialCommunityIcons name="message-processing-outline" size={28} color={focused ? "#FFF" : "#757575"} />
                 },
 
             }}
@@ -63,9 +63,9 @@ export default function ProtectedLayout() {
                 title: "Agenda",
                 headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => {
-                    if(focused) return <ActivityTab name="calendar-month"/>
+                    if (focused) return <ActivityTab name="calendar-month" />
 
-                    return <MaterialCommunityIcons name="calendar-month-outline" size={36} color={focused ? "#FFF" : "#757575"} />
+                    return <MaterialCommunityIcons name="calendar-month-outline" size={28} color={focused ? "#FFF" : "#757575"} />
                 },
 
             }}
@@ -76,9 +76,9 @@ export default function ProtectedLayout() {
                 title: "Mais",
                 headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => {
-                    if (focused) return <ActivityTab name="menu"/>
+                    if (focused) return <ActivityTab name="menu" />
 
-                    return <MaterialCommunityIcons name="menu" size={36} color={focused ? "#FFF" : "#757575"} />
+                    return <MaterialCommunityIcons name="menu" size={28} color={focused ? "#FFF" : "#757575"} />
                 },
 
             }}
@@ -91,14 +91,14 @@ export default function ProtectedLayout() {
 }
 
 type ActivityTabProps = {
-  name: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
+    name: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
 };
 
 
 function ActivityTab({ name }: ActivityTabProps) {
     return (
-        <View className="bg-slate-100 p-2.5 rounded-b-full -top-2" style={{ elevation: 1 }}>
-            <View className="bg-green-500 rounded-full p-2.5 items-center justify-center">
+        <View className="bg-slate-100 p-2 rounded-b-full -top-3 shadow-sm" style={{ elevation: 2 }}>
+            <View className="bg-green-500 rounded-full p-3 items-center justify-center">
                 <MaterialCommunityIcons name={name} size={24} color={"#FFF"} />
             </View>
         </View>
