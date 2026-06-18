@@ -1,4 +1,4 @@
-import { View, Image, TouchableOpacity, Text, ScrollView, Dimensions } from 'react-native';
+import { View, Image, TouchableOpacity, Text, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Shadow } from "react-native-shadow-2";
@@ -6,18 +6,17 @@ import { Shadow } from "react-native-shadow-2";
 import { useAuth } from '@/hooks/useAuth';
 import Input from '@/components/textInput';
 
-const { width } = Dimensions.get("window");
 
 export default function SignIn() {
   const { signIn } = useAuth();
 
   return (
-    // ScrollView garante que usuários com telas menores consigam rolar a tela quando o teclado abrir
+    
     <ScrollView className='flex-1 bg-green-500' contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
       
-      {/* Área Superior: Logo e Elementos Orgânicos */}
+      
       <View className='justify-center items-center bg-green-500 relative overflow-hidden' style={{ flex: 1, minHeight: 220 }}>
-        {/* Círculos decorativos de fundo */}
+        
         <View className='bg-green-600/40 h-56 w-56 rounded-full absolute -left-14 -top-24' />
         <View className='bg-green-400/30 h-48 w-48 rounded-full absolute -right-14 -bottom-10' />
 
@@ -30,13 +29,13 @@ export default function SignIn() {
         </View>
       </View>
 
-      {/* Formulário Inferior (Efeito Bottom Sheet) */}
+      
       <View className='bg-white w-full px-5 pt-6 pb-8 rounded-t-[32px] gap-4 shadow-xl' style={{ elevation: 16, flex: 2 }}>
         
-        {/* Tracinho estético de arrastar do Bottom Sheet */}
+        
         <View className='h-1 w-12 rounded-full bg-slate-200 self-center mb-2' />
 
-        {/* Textos de Boas-Vindas */}
+      
         <View className='px-1 mb-2'>
           <Text className='text-2xl font-extrabold text-slate-800'>
             Bem-vindo, <Text className='text-green-500'>Morador!</Text>
@@ -44,7 +43,7 @@ export default function SignIn() {
           <Text className='text-slate-400 text-sm font-medium mt-0.5'>Entre para gerenciar o seu condomínio</Text>
         </View>
 
-        {/* Campos de Input */}
+      
         <Input name='E-mail' icone='email-outline' placeholder="exemplo@email.com" />
         
         <View className="gap-1.5">
@@ -54,7 +53,6 @@ export default function SignIn() {
           </TouchableOpacity>
         </View>
 
-        {/* Botão Entrar com Gradiente e Sombra Premium */}
         <View className="mt-2">
           <Shadow
             distance={8}
@@ -86,14 +84,13 @@ export default function SignIn() {
           </Shadow>
         </View>
 
-        {/* Divisor "Ou" */}
         <View className='flex-row items-center w-full justify-center my-2'>
           <View className='h-[1px] bg-slate-100 flex-1' />
           <Text className='text-slate-400 font-bold text-xs px-3 uppercase tracking-wider'>Ou entre com</Text>
           <View className='h-[1px] bg-slate-100 flex-1' />
         </View>
 
-        {/* Botões de Login Social Polidos */}
+        
         <View className='flex-row items-center justify-center gap-3'>
           <TouchableOpacity className='flex-1 bg-slate-50 border border-slate-200 p-3 rounded-xl flex-row justify-center items-center gap-2 active:bg-slate-100'>
             <MaterialCommunityIcons name='google' color={"#ea4335"} size={20} />
@@ -106,7 +103,6 @@ export default function SignIn() {
           </TouchableOpacity>
         </View>
 
-        {/* Link para Criar Conta */}
         <View className='flex-row self-center items-center mt-4'>
           <Text className="text-slate-500 text-sm">Não tem uma conta? </Text>
           <TouchableOpacity>

@@ -1,13 +1,27 @@
 import { Tabs, Redirect } from "expo-router";
 import { Octicons, MaterialCommunityIcons } from '@expo/vector-icons'
-import SignIn from "../signin";
 
 import { useAuth } from "@/hooks/useAuth";
-import { StatusBar, View } from "react-native";
+import { View } from "react-native";
 
 
 
 export default function ProtectedLayout() {
+
+    const { isLoggedIn } = useAuth();
+
+ // 🕵️‍♂️ Monitore o terminal quando você clicar no filtro da Agenda!
+    console.log("ProtectedLayout detectou isLoggedIn como:", isLoggedIn);
+
+    // Se estiver explicitamente deslogado, manda para o login
+    if (isLoggedIn === false) {
+        return <Redirect href="/signin" />;
+    }
+
+    // Se estiver carregando ou em transição (undefined), segura a tela sem quebrar a navegação
+    if (isLoggedIn === undefined) {
+        return null; 
+    }
 
     return (
         <Tabs screenOptions={{

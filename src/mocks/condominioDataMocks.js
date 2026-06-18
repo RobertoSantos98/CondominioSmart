@@ -1,4 +1,52 @@
 // Dados fictícios para o desenvolvimento do Frontend do App de Condomínio
+export const compromissos = [
+  {
+    id: '1',
+    dateTime: '2026-06-19T08:30:00Z',
+    titulo: 'Dedetização das Áreas Comuns',
+    descricao: 'Aplicação preventiva contra insetos nas garagens, portaria e subsolos. Evite circular com pets nesses locais.',
+    tipo: 'eventos',
+    status: 'Confirmado',
+    imagem: 'https://images.unsplash.com/photo-1605117882932-f9e32b17fea2?q=80&w=200&auto=format&fit=crop'
+  },
+  {
+    id: '2',
+    dateTime: '2026-06-20T11:00:00Z',
+    titulo: 'Reserva: Churrasqueira G1',
+    descricao: 'Sua reserva para o almoço de confraternização foi aprovada. Capacidade máxima de 25 convidados.',
+    tipo: 'minhasReservas',
+    status: 'Confirmado',
+    imagem: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=200&auto=format&fit=crop'
+  },
+  {
+    id: '3',
+    dateTime: '2026-06-20T14:00:00Z',
+    titulo: 'Visita: Personal Trainer',
+    descricao: 'Acesso programado à academia do condomínio para o profissional Lucas Silva (CREF 000000-G/SP).',
+    tipo: 'visitante',
+    status: 'Agendado',
+    imagem: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=200&auto=format&fit=crop'
+  },
+  {
+    id: '4',
+    dateTime: '2026-06-22T20:00:00Z',
+    titulo: 'Assembleia de Orçamento',
+    descricao: 'Reunião extraordinária presencial no Salão Master para votação do fundo de reserva e melhorias na portaria.',
+    tipo: 'assembleia',
+    status: 'Obrigatorio',
+    imagem: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=200&auto=format&fit=crop'
+  },
+  {
+    id: '5',
+    dateTime: '2026-06-23T10:30:00Z',
+    titulo: 'Teste do Alarme de Incêndio',
+    descricao: 'O alarme irá soar intermitentemente em todos os blocos para os testes obrigatórios de vistoria do Corpo de Bombeiros.',
+    tipo: 'eventos',
+    status: 'Confirmado',
+    imagem: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=200&auto=format&fit=crop'
+  }
+];
+
 
 export const mockAvisos = [
   {
