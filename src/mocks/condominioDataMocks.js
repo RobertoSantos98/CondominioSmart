@@ -6,8 +6,8 @@ export const compromissos = [
     titulo: 'Dedetização das Áreas Comuns',
     descricao: 'Aplicação preventiva contra insetos nas garagens, portaria e subsolos. Evite circular com pets nesses locais.',
     tipo: 'eventos',
-    status: 'Confirmado',
-    imagem: 'https://images.unsplash.com/photo-1605117882932-f9e32b17fea2?q=80&w=200&auto=format&fit=crop'
+    status: 'Obrigatorio',
+    imagem: 'https://www.auxiliadorapredial.com.br/blog/wp-content/uploads/dedetizacao-capa.webp'
   },
   {
     id: '2',
@@ -16,7 +16,7 @@ export const compromissos = [
     descricao: 'Sua reserva para o almoço de confraternização foi aprovada. Capacidade máxima de 25 convidados.',
     tipo: 'minhasReservas',
     status: 'Confirmado',
-    imagem: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=200&auto=format&fit=crop'
+    imagem: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500'
   },
   {
     id: '3',
@@ -24,8 +24,8 @@ export const compromissos = [
     titulo: 'Visita: Personal Trainer',
     descricao: 'Acesso programado à academia do condomínio para o profissional Lucas Silva (CREF 000000-G/SP).',
     tipo: 'visitante',
-    status: 'Agendado',
-    imagem: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=200&auto=format&fit=crop'
+    status: 'Aguardando',
+    imagem: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500'
   },
   {
     id: '4',
@@ -34,7 +34,7 @@ export const compromissos = [
     descricao: 'Reunião extraordinária presencial no Salão Master para votação do fundo de reserva e melhorias na portaria.',
     tipo: 'assembleia',
     status: 'Obrigatorio',
-    imagem: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=200&auto=format&fit=crop'
+    imagem: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500'
   },
   {
     id: '5',
