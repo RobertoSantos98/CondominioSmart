@@ -37,10 +37,13 @@ export default function Index() {
                 {/* Alerta de Encomendas */}
                 <View className='px-4 py-2 gap-1'>
                     <Text className='text-white text-xl font-extrabold'>Olá, Raphael!</Text>
-                    <View className='flex-row items-center gap-2 mt-1'>
+                    <TouchableOpacity onPress={() => router.push('/portaria')} className='flex-row items-center gap-2 mt-1'>
                         <MaterialCommunityIcons name='package-variant-closed' color={"#bbf7d0"} size={18} />
-                        <Text className='text-green-100 font-medium text-sm'>Você tem 2 pacotes na portaria</Text>
-                    </View>
+                        <View className='flex-row gap-0.5 items-center'>
+                            <Text className='text-green-100 font-medium text-sm'>Você tem 2 pacotes na portaria</Text>
+                            <MaterialIcons name='keyboard-arrow-right' color={"#bbf7d0"} size={18} />
+                        </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 

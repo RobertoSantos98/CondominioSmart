@@ -205,6 +205,7 @@ export const mockEncomendas = [
     receivedAt: "2026-06-16T11:20:00Z",
     status: "Portaria", // Portaria, Retirado
     receivedBy: "Porteiro Carlos",
+    PIN: "4821"
   },
   {
     id: "enc_2",
@@ -213,6 +214,7 @@ export const mockEncomendas = [
     receivedAt: "2026-06-15T15:40:00Z",
     status: "Portaria",
     receivedBy: "Porteira Meire",
+    PIN: "5920"
   },
   {
     id: "enc_3",
@@ -221,7 +223,8 @@ export const mockEncomendas = [
     receivedAt: "2026-06-12T10:00:00Z",
     status: "Retirado",
     receivedBy: "Porteiro Carlos",
-    pickedUpAt: "2026-06-12T19:00:00Z"
+    pickedUpAt: "2026-06-12T19:00:00Z",
+    PIN: "1452"
   },
   {
     id: "enc_4",
@@ -230,6 +233,7 @@ export const mockEncomendas = [
     receivedAt: "2026-06-16T14:10:00Z",
     status: "Portaria",
     receivedBy: "Porteiro Carlos",
+    PIN: "8572"
   },
   {
     id: "enc_5",
@@ -238,6 +242,7 @@ export const mockEncomendas = [
     receivedAt: "2026-06-16T14:45:00Z",
     status: "Portaria",
     receivedBy: "Porteira Meire",
+    PIN: "9647"
   }
 ];
 
